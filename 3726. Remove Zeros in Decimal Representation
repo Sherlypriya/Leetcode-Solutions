@@ -1,0 +1,34 @@
+class Solution {
+    public long removeZeros(long n) {
+        boolean negative = n < 0;
+        if (negative) {
+            n = -n;
+        }
+        long d;
+        long x = 0;
+        long place = 1;
+        long temp = n;
+        while (temp >= 10) {
+            place *= 10;
+            temp /= 10;
+        }
+
+       
+        while (place > 0) {
+            d = n / place;
+            n = n % place;
+
+            if (d != 0) {
+                x = x * 10 + d;
+            }
+
+            place /= 10;
+        }
+
+        if (negative) {
+            x = -x;
+        }
+
+        return x;
+    }
+}
