@@ -1,0 +1,18 @@
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        if (c < 0) {
+            return false;
+        }
+
+        for (long i = 0; i * i <= c; i++) {
+            long remaining = c - i * i;
+            long j = (long) Math.sqrt(remaining);
+
+            if (j * j == remaining) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
